@@ -25,5 +25,6 @@
 	</build>
 	<modules>
 		<module>zkdemo</module>
+		<module>jdk-learn</module>
 	</modules>
 </project>
