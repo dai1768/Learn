@@ -23,13 +23,14 @@ public class Task extends RecursiveAction {
 
 	@Override
 	protected void compute() {
-		if (last-first<10) {
+		if (last-first<100) {
 			updatePrices();
 		}else{
 			int middle = (last + first ) /2;
-			System.out.printf("Task: Pending tasks:	%s\n",getQueuedTaskCount());
+			System.out.printf("%s,待处理的任务:	%s\n",Thread.currentThread(),getQueuedTaskCount());
 			Task t1 = new Task(products, first,middle+1, increment);
 			Task t2 = new Task(products, middle+1, last,increment);
+			//同步接口，须等待子任务结束才返回
 			super.invokeAll(t1,t2);
 			
 		}
